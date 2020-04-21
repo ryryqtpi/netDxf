@@ -349,6 +349,11 @@ namespace netDxf.IO
                 return result;
             }
 
+            if (short.TryParse(valueString, NumberStyles.Float, CultureInfo.InvariantCulture, out result))
+            {
+                return result;
+            }
+
             throw new Exception(string.Format("Value {0} not valid at line {1}", valueString, this.currentPosition));
         }
 
